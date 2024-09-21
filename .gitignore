@@ -1,0 +1,14 @@
+*.iml
+.idea
+.gradle
+.DS_Store
+.externalNativeBuild
+.cxx
+local.properties
+**/build
+/captures
+app/release
+app/debug
+
+# ENV
+app/src/main/assets/env
