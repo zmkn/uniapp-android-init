@@ -1,0 +1,7 @@
+{
+  "nativePlugins": [
+    {
+      "hooksClass": "com.ailingqi.uniplugin_modules.HookProxy"
+    }
+  ]
+}

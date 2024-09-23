@@ -29,4 +29,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "UniAPP Init"
 include(":app")
- 
+include(":uniplugin_modules")

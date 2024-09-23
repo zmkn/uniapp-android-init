@@ -1,14 +1,15 @@
 *.iml
 .idea
 .gradle
+.kotlin
 .DS_Store
 .externalNativeBuild
 .cxx
 local.properties
-**/build
 /captures
-app/release
-app/debug
+**/build
+**/release
+**/debug
 
 # ENV
-app/src/main/assets/env
+**/src/main/assets/env
