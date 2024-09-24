@@ -21,17 +21,8 @@
 -dontoptimize
 
 # 不混淆子类
--keep public class * extends android.app.Activity
--keep public class * extends android.app.Application
--keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgentHelper
--keep public class * extends android.preference.Preference
--keep public class * extends io.dcloud.common.DHInterface.IDPlugin
--keep public class * extends io.dcloud.common.DHInterface.IFeature
--keep public class * extends io.dcloud.common.DHInterface.IBoot
--keep public class * extends io.dcloud.common.DHInterface.IReflectAble
+-keep public class * extends android.**
+-keep public class * extends io.dcloud.common.DHInterface.**
 
 -dontwarn io.dcloud.feature.audio.**
 -keep class io.dcloud.feature.audio.** {*;}
@@ -74,6 +65,11 @@
 
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated, SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
 
+-keep class io.dcloud.appstream.*
+-keepclasseswithmembers class io.dcloud.appstream.* {
+    public protected <methods>;
+}
+
 -keep class io.dcloud.common.DHInterface.IReflectAble
 -keep public class * extends io.dcloud.common.DHInterface.IReflectAble{
   public protected <methods>;
@@ -99,7 +95,9 @@
 -keepclasseswithmembers class *{
   public static java.lang.String getJsContent();
 }
-
+-keepclasseswithmembers class io.dcloud.appstream.* {
+    <methods>;
+}
 -keepclasseswithmembers class *{
 	public static void onReceiver1(android.content.Intent, android.content.Context);
 }
@@ -140,6 +138,7 @@
 }
 
 -keepattributes Signature
+-keep class io.dcloud.encryption.** {*;}
 -dontwarn com.igexin.**
 -keep class org.json.** { *; }
 -dontwarn com.amap.**
