@@ -1,9 +1,10 @@
 val releaseAbis: Array<String> = arrayOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
 
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -27,11 +28,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.ailingqi.uniplugin_modules"
+        namespace = "com.ailingqi.uniplugin_modules"
         minSdk = 21
-        targetSdk = 35
-        versionCode = 100000
-        versionName = "1.0.0"
+
         signingConfig = signingConfigs.getByName("release")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
@@ -49,9 +48,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            isDebuggable = false
             isJniDebuggable = false
-            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -64,9 +61,7 @@ android {
 
         debug {
             isMinifyEnabled = false
-            isDebuggable = true
             isJniDebuggable = false
-            isShrinkResources = false
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -103,11 +98,6 @@ android {
         additionalParameters.add("--auto-add-overlay")
     }
 
-    dependenciesInfo {
-        includeInApk = true
-        includeInBundle = true
-    }
-
     packaging {
         resources {
             excludes += listOf(
@@ -123,6 +113,14 @@ android {
             // 指定自定义的 jniLibs 目录
             jniLibs.srcDirs("jniLibs")
         }
+    }
+
+    testOptions {
+        targetSdk = 35
+    }
+
+    lint {
+        targetSdk = 35
     }
 }
 

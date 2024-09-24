@@ -33,3 +33,7 @@
 -keep public class * extends io.dcloud.feature.uniapp.UniAppHookProxy {*;}
 -keep public class * extends io.dcloud.feature.uniapp.common.UniModule {*;}
 -keep public class * extends io.dcloud.feature.uniapp.ui.component.UniComponent {*;}
+
+# 开源库依赖的其它库---start---
+-dontwarn java.lang.invoke.**
+-keep class java.lang.invoke.** {*;}
