@@ -28,9 +28,7 @@ android {
     }
 
     defaultConfig {
-        namespace = "com.ailingqi.uniplugin_modules"
         minSdk = 21
-
         signingConfig = signingConfigs.getByName("release")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
