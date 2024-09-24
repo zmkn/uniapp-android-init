@@ -128,6 +128,8 @@ android {
 }
 
 dependencies {
+    // 导入uni-app插件
+    implementation(project(":uniplugin_modules"))
     // 导入SDK相关依赖jar、aar
     implementation(
         fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar")))
